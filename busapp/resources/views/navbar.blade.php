@@ -47,10 +47,9 @@
                 <div class="menu-inner">
                     <nav>
                         <ul class="metismenu" id="menu">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">User Details</a></li>
-                        <li><a href="#">Card Register</a></li>
-                        <li><a href="#">Bus Schedule</a></li>
+                        <li><a href="{{route('dashboard')}}">Dashboard</a></li>
+                        <li><a href="{{route('card-register')}}">Card Register</a></li>
+                        <li><a href="{{route('user-details')}}">Bus Schedule</a></li>
                     </ul>
                     </nav>
                 </div>

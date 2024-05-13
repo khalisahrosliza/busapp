@@ -8,6 +8,7 @@ class BusScheduleController extends Controller
 {
     public function index()
     {
+        dump('This is Bus Schedule page');
         return view('dashboard');
     }
 }

@@ -8,6 +8,7 @@ class UserDetailController extends Controller
 {
     public function index()
     {
+        dump('This is User Detail page');
         return view('dashboard');
     }
 }

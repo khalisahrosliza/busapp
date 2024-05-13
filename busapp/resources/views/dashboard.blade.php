@@ -13,8 +13,8 @@
                                         <p>24 H</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 4567809,987</h2>
-                                        <span>- 45.87</span>
+                                        <h2> - </h2>
+                                        <span>- </span>
                                     </div>
                                 </div>
                                 <canvas id="coin_sales1" height="100"></canvas>
@@ -30,8 +30,8 @@
                                         <p>24 H</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 4567809,987</h2>
-                                        <span>- 45.87</span>
+                                        <h2>-</h2>
+                                        <span>- </span>
                                     </div>
                                 </div>
                                 <canvas id="coin_sales2" height="100"></canvas>
@@ -47,8 +47,8 @@
                                         <p>24 H</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 4567809,987</h2>
-                                        <span>- 45.87</span>
+                                        <h2>-</h2>
+                                        <span>- </span>
                                     </div>
                                 </div>
                                 <canvas id="coin_sales3" height="100"></canvas>
@@ -64,8 +64,8 @@
                                         <p>24 H</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 4567809,987</h2>
-                                        <span>- 45.87</span>
+                                        <h2>-</h2>
+                                        <span>- </span>
                                     </div>
                                 </div>
                                 <canvas id="coin_sales2" height="100"></canvas>
@@ -81,7 +81,7 @@
                                         <p>24 H</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 4567809,987</h2>
+                                        <h2>-</h2>
                                     </div>
                                 </div>
                                 <canvas id="coin_sales2" height="100"></canvas>
@@ -97,8 +97,8 @@
                                         <p>24 H</p>
                                     </div>
                                     <div class="d-flex justify-content-between pb-2">
-                                        <h2>$ 4567809,987</h2>
-                                        <span>- 45.87</span>
+                                        <h2>-</h2>
+                                        <span>- </span>
                                     </div>
                                 </div>
                                 <canvas id="coin_sales2" height="100"></canvas>
@@ -126,7 +126,7 @@
                     <div class="col-xl-3 col-lg-4 coin-distribution">
                         <div class="card h-full">
                             <div class="card-body">
-                                <h4 class="header-title mb-0">Coin Distribution</h4>
+                                <h4 class="header-title mb-0">Number Distribution</h4>
                                 <div id="coin_distribution"></div>
                             </div>
                         </div>
