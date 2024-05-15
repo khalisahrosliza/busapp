@@ -10,13 +10,21 @@ use App\Http\Controllers\BusScheduleController;
 
 
 Route::get('/', [DashboardController::class , 'index'] )->name('dashboard');
+
+//Auth::routes();
+
+//Route::get('/userdetails', [App\Http\Controllers\UserDetailController::class, 'index'])->name('userdetails');
+
 Route::get('/userdetails', [UserDetailController::class , 'index'] )->name('user-details');
-Route::get('/bus-schedule/{id}/image', [UserDetailControllerr::class, 'getImage'])->name('bus-schedule.image');
+
+///Route::get('/cardregister', 'CardRegisterController@index')->name('cardregister');
+
 Route::get('/cardregister', [CardRegisterController::class , 'index'] )->name('card-register');
 Route::post('/cardregister', [CardRegisterController::class , 'store'] )->name('card-register');
+
 Route::get('/busschedule', [BusScheduleController::class , 'index'] )->name('bus-schedule');
 
-
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 
