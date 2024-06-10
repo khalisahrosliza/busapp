@@ -5,9 +5,10 @@ use App\Http\Controllers\UserDetailController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CardRegisterController;
 use App\Http\Controllers\BusScheduleController;
+use App\Http\Controllers\BusAController;
 
-
-
+Route::get('/bus-a', [BusAController::class, 'showBusA'])->name('bus.a');
+Route::get('/passengerData', [PassengerController::class, 'index']);
 
 Route::get('/', [DashboardController::class , 'index'] )->name('dashboard');
 

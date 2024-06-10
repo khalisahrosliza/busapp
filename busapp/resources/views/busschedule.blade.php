@@ -2,26 +2,28 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Bus A Schedule</h2>
-                <img src="{{ asset('images/bus_schedules/bus_a_schedule.png') }}" alt="Bus A Schedule">
+        @php
+            $schedules = [
+                'A' => 'bus_a_schedule.png',
+                'C' => 'bus_c_schedule.png',
+                'D' => 'bus_d_schedule.png',
+                'E' => 'bus_e_schedule.png'
+            ];
+        @endphp
+
+        @foreach($schedules as $bus => $image)
+            @php
+                $imagePath = asset('images/bus_schedules/' . $image);
+            @endphp
+            <div class="row mb-4 justify-content-center">
+                <div class="col-md-8 text-center">
+                    <h2>Bus {{ $bus }} Schedule</h2>
+                    <p>Image Path: {{ $imagePath }}</p> <!-- For debugging purposes -->
+                    <img src="{{ $imagePath }}" alt="Bus {{ $bus }} Schedule" class="img-fluid mx-auto d-block">
+                    <!-- Hardcoded image URL for testing -->
+                    <img src="http://127.0.0.1:8000/images/bus_schedules/bus_a_schedule.png" alt="Test Image" class="img-fluid mx-auto d-block">
+                </div>
+            @endforeach
             </div>
-            <div class="col-md-6">
-                <h2>Bus C Schedule</h2>
-                <img src="{{ asset('images/bus_schedules/bus_c_schedule.png') }}" alt="Bus C Schedule">
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-md-6">
-                <h2>Bus D Schedule</h2>
-                <img src="{{ asset('images/bus_schedules/bus_d_schedule.png') }}" alt="Bus D Schedule">
-            </div>
-            <div class="col-md-6">
-                <h2>Bus E Schedule</h2>
-                <img src="{{ asset('images/bus_schedules/bus_e_schedule.png') }}" alt="Bus E Schedule">
-            </div>
-        </div>
-        <!-- Add more rows for other buses if needed -->
     </div>
 @endsection

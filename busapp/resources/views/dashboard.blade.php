@@ -23,7 +23,7 @@
             justify-content: center;
         }
         .bus-box {
-            padding: 20px;
+            padding: 0px;
             border: 1px solid #ccc;
             border-radius: 10px;
             text-align: center;
@@ -39,7 +39,7 @@
         }
         .bus-box .bus-icon {
             font-size: 2.5em; /* Center the letter */
-            position: absolute;
+            position: center;
             top: 50%;
             transform: translateY(-50%);
         }
@@ -50,9 +50,10 @@
         .bus-box.bus-b { background-color: #F0E68C; }
         .bus-box.bus-g { background-color: #ADD8E6; }
         .operating-info {
-            position: absolute;
+            position: flex;
+            vertical-align: middle;
             bottom: 10px; /* Position at the bottom */
-            font-size: 0.6em; /* Made the font size smaller */
+            font-size:10.0px; /* Made the font size smaller */
             color: #333;
         }
     </style>
@@ -71,7 +72,7 @@
                 <!-- BUS A -->
                 <div class="single-report bus-box bus-a">
                     <div class="s-report-inner mb-3">
-                        <div class="bus-icon">A</div>
+                        <h2><a href="{{ route('bus.a') }}"><div class="bus-icon">A</div></a></h2>
                         <div class="operating-info">
                             Currently Operating: <strong>5</strong>
                         </div>
@@ -152,4 +153,5 @@
         <!-- overview area end -->
     </div>
     <!-- main content area end -->
+
 @endsection
