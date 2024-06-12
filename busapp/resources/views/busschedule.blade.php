@@ -2,28 +2,13 @@
 
 @section('content')
     <div class="container">
-        @php
-            $schedules = [
-                'A' => 'bus_a_schedule.png',
-                'C' => 'bus_c_schedule.png',
-                'D' => 'bus_d_schedule.png',
-                'E' => 'bus_e_schedule.png'
-            ];
-        @endphp
+        <h1 class="text-center">Bus Schedules</h1>
+        <p class="text-center">View the bus schedules below</p>
 
-        @foreach($schedules as $bus => $image)
-            @php
-                $imagePath = asset('images/bus_schedules/' . $image);
-            @endphp
-            <div class="row mb-4 justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h2>Bus {{ $bus }} Schedule</h2>
-                    <p>Image Path: {{ $imagePath }}</p> <!-- For debugging purposes -->
-                    <img src="{{ $imagePath }}" alt="Bus {{ $bus }} Schedule" class="img-fluid mx-auto d-block">
-                    <!-- Hardcoded image URL for testing -->
-                    <img src="http://127.0.0.1:8000/images/bus_schedules/bus_a_schedule.png" alt="Test Image" class="img-fluid mx-auto d-block">
-                </div>
-            @endforeach
-            </div>
+        <img src="{{ asset('import/assets/images/bus_schedules/bus_a_schedule.png') }}" alt="Bus A Schedule" class="img-fluid">
+        <img src="{{ asset('import/assets/images/bus_schedules/bus_c_schedule.png') }}" alt="Bus C Schedule" class="img-fluid">
+        <img src="{{ asset('import/assets/images/bus_schedules/bus_d_schedule.png') }}" alt="Bus D Schedule" class="img-fluid">
+        <img src="{{ asset('import/assets/images/bus_schedules/bus_e_schedule.png') }}" alt="Bus E Schedule" class="img-fluid">
+
     </div>
 @endsection

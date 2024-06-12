@@ -72,7 +72,8 @@
                 <!-- BUS A -->
                 <div class="single-report bus-box bus-a">
                     <div class="s-report-inner mb-3">
-                        <h2><a href="{{ route('bus.a') }}"><div class="bus-icon">A</div></a></h2>
+                        <h2><a href="{{ route('bus_a') }}">
+                            <div class="bus-icon">A</div></a></h2>
                         <div class="operating-info">
                             Currently Operating: <strong>5</strong>
                         </div>

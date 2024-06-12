@@ -7,7 +7,6 @@ use App\Http\Controllers\CardRegisterController;
 use App\Http\Controllers\BusScheduleController;
 use App\Http\Controllers\BusAController;
 
-Route::get('/bus-a', [BusAController::class, 'showBusA'])->name('bus.a');
 Route::get('/passengerData', [PassengerController::class, 'index']);
 
 Route::get('/', [DashboardController::class , 'index'] )->name('dashboard');
@@ -15,6 +14,9 @@ Route::get('/', [DashboardController::class , 'index'] )->name('dashboard');
 //Auth::routes();
 
 //Route::get('/userdetails', [App\Http\Controllers\UserDetailController::class, 'index'])->name('userdetails');
+
+Route::get('/bus_a', [BusAController::class , 'index'] )->name('bus_a');
+
 
 Route::get('/userdetails', [UserDetailController::class , 'index'] )->name('user-details');
 
