@@ -3,38 +3,35 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UserDetails; // Correct model import
 
 class CardRegisterController extends Controller
 {
     public function index()
     {
-        dump('This is Card Register page');
-        return view('cardregister');
+        return view('cardregister'); // Ensure this view exists
     }
-}
 
-
-class CardRegisterController extends Controller
-{
     public function store(Request $request)
     {
+        // Validate the request data
         $request->validate([
             'card_id' => 'required|string',
-            'std_id' => 'required|string',
+            'std_id' => 'required|string', // This field is missing from the migration
             'faculty' => 'required|string',
             'gender' => 'required|string',
             'residential' => 'required|string',
         ]);
 
-        users::create([
+        // Create a new user record
+        UserDetails::create([
             'card_id' => $request->card_id,
             'std_id' => $request->std_id,
-            'gender' => $request->gender,
             'faculty' => $request->faculty,
+            'gender' => $request->gender,
             'residential' => $request->residential,
         ]);
 
-        return response()->json(['message' => 'User added successfully'], 201);
+        return redirect()->back()->with('success', 'User added successfully');
     }
 }
-

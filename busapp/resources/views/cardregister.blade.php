@@ -1,22 +1,7 @@
+<!-- resources/views/cardregister.blade.php -->
 @extends('navbar')
+
 @section('content')
-
-
-<!--/*require "dbconn.php";
-
-if (isset($_POST["card_id"])) {   // rfid posted as a query
-    $card_id = $_POST["card_id"];
-    $std_id = $_POST["std_id"];
-    $faculty = $_POST["faculty"];
-    $gender = $_POST["gender"];
-    $residential = $_POST["residential"];
-     $sql = "INSERT INTO users (rfid_uid, name, gender, faculty, student_type) VALUES ('" . $card_id . "', '" . $std_id . "', '" . $gender . "', '" . $faculty . "', '" . $residential ."')";
-    if ($conn->query($sql) === TRUE) ;
-
-}-->
-
-
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -24,16 +9,20 @@ if (isset($_POST["card_id"])) {   // rfid posted as a query
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    @if (session('success'))
+                        <div class="alert alert-success" style="color: green;">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
                     <form method="POST" action="{{ route('cardregister') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('CARD ID') }}</label>
-
+                            <label for="card_id" class="col-md-4 col-form-label text-md-end">{{ __('CARD ID') }}</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="card_id" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
+                                <input id="card_id" type="text" class="form-control @error('card_id') is-invalid @enderror" name="card_id" value="{{ old('card_id') }}" required autofocus>
+                                @error('card_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -42,12 +31,10 @@ if (isset($_POST["card_id"])) {   // rfid posted as a query
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('STUDENT ID') }}</label>
-
+                            <label for="std_id" class="col-md-4 col-form-label text-md-end">{{ __('STUDENT ID') }}</label>
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="std_id" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
+                                <input id="std_id" type="text" class="form-control @error('std_id') is-invalid @enderror" name="std_id" value="{{ old('std_id') }}" required>
+                                @error('std_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -57,36 +44,58 @@ if (isset($_POST["card_id"])) {   // rfid posted as a query
 
                         <div class="row mb-3">
                             <label for="faculty" class="col-md-4 col-form-label text-md-end">{{ __('FACULTY') }}</label>
-
                             <div class="col-md-6">
-                                <input id="faculty" type="text" class="form-control" name="faculty" required>
+                                <select id="faculty" class="form-control @error('faculty') is-invalid @enderror" name="faculty" required>
+                                    <option value="" disabled selected>Select your faculty</option>
+                                    <option value="Engineering">Engineering</option>
+                                    <option value="kppim">KPPIM</option>
+                                    <option value="fsr">FSR</option>
+                                    <option value="mascom">MASCOM</option>
+                                    <option value="apb">APB</option>
+                                </select>
+                                @error('faculty')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
 
+
                         <div class="row mb-3">
-                            <label class="form-label col-md-4 col-form-label text-md-end">{{ __('GENDER') }}</label>
-                            <div class="col-md-8"> <!-- Add a column for radio buttons -->
-                                <div class="form-check form-check-inline"> <!-- Use form-check for proper spacing -->
+                            <label class="col-md-4 col-form-label text-md-end">{{ __('GENDER') }}</label>
+                            <div class="col-md-8">
+                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender" id="maleRadio" value="male">
-                                    <label class="form-check-label" for="maleRadio">MALE</label>
+                                    <label class="form-check-label" for="maleRadio">{{ __('MALE') }}</label>
                                 </div>
-                                <div class="form-check form-check-inline"> <!-- Use form-check for proper spacing -->
+                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="gender" id="femaleRadio" value="female">
-                                    <label class="form-check-label" for="femaleRadio">FEMALE</label>
+                                    <label class="form-check-label" for="femaleRadio">{{ __('FEMALE') }}</label>
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label class="form-label col-md-4 col-form-label text-md-end">{{ __('RESIDENTIAL') }}</label>
-                            <div class="col-md-8"> <!-- Add a column for radio buttons -->
-                                <div class="form-check form-check-inline"> <!-- Use form-check for proper spacing -->
+                            <label class="col-md-4 col-form-label text-md-end">{{ __('RESIDENTIAL') }}</label>
+                            <div class="col-md-8">
+                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="residential" id="residentRadio" value="resident">
-                                    <label class="form-check-label" for="residentRadio">RESIDENT</label>
+                                    <label class="form-check-label" for="residentRadio">{{ __('RESIDENT') }}</label>
                                 </div>
-                                <div class="form-check form-check-inline"> <!-- Use form-check for proper spacing -->
+                                <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" name="residential" id="nonresidentRadio" value="nonresident">
-                                    <label class="form-check-label" for="nonresidentRadio">NON-RESIDENT</label>
+                                    <label class="form-check-label" for="nonresidentRadio">{{ __('NON-RESIDENT') }}</label>
+                                @error('residential')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 </div>
                             </div>
                         </div>
