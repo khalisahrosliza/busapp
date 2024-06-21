@@ -12,7 +12,7 @@ class UserDetails extends Model
     use HasFactory;
 
     protected $fillable = [
-        'card_id', 'std_id', 'gender', 'faculty', 'residential',
+        'card_id', 'std_id', 'faculty', 'gender', 'residential',
     ];
 }
 
