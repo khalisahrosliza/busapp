@@ -1,33 +1,31 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PassengerData;
+use App\Models\UserDetails;
 
 class PassengerController extends Controller
 {
-    public function updatePassengerData(Request $request)
+    public function store(Request $request)
     {
-        $validated = $request->validate([
-            'rfid_data' => 'nullable|string',
-            'passenger_count' => 'nullable|integer',
+        $request->validate([
+            'card_id' => 'required|string',
+            'std_id' => 'required|string',
+            'faculty' => 'required|string',
+            'gender' => 'required|string',
+            'residential' => 'required|string',
         ]);
 
-        $passengerData = new PassengerData();
-        if ($validated['rfid_data'] !== null) {
-            $passengerData->rfid_data = $validated['rfid_data'];
-        }
-        if ($validated['passenger_count'] !== null) {
-            $passengerData->passenger_count = $validated['passenger_count'];
-        }
-        $passengerData->save();
+        users::create([
+            'card_id' => $request->card_id,
+            'std_id' => $request->std_id,
+            'gender' => $request->gender,
+            'faculty' => $request->faculty,
+            'residential' => $request->residential,
+        ]);
 
-        return response()->json(['message' => 'Data updated successfully'], 200);
-    }
-
-    public function index()
-    {
-        $passengerData = PassengerData::all();
-        return view('passenger.index', compact('passengerData'));
+        return response()->json(['message' => 'User added successfully'], 201);
     }
 }
+

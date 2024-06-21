@@ -48,8 +48,8 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                         <li><a href="{{route('dashboard')}}">Dashboard</a></li>
-                        <li><a href="{{route('card-register')}}">Card Register</a></li>
-                        <li><a href="{{route('bus-schedule')}}">Bus Schedule</a></li>
+                        <li><a href="{{route('cardregister')}}">Card Register</a></li>
+                        <li><a href="{{route('busschedule')}}">Bus Schedule</a></li>
                     </ul>
                     </nav>
                 </div>

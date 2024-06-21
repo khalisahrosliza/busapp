@@ -1,8 +1,8 @@
 @extends('navbar')
 @section('content')
 
-<?php
-/*require "dbconn.php";
+
+<!--/*require "dbconn.php";
 
 if (isset($_POST["card_id"])) {   // rfid posted as a query
     $card_id = $_POST["card_id"];
@@ -13,9 +13,9 @@ if (isset($_POST["card_id"])) {   // rfid posted as a query
      $sql = "INSERT INTO users (rfid_uid, name, gender, faculty, student_type) VALUES ('" . $card_id . "', '" . $std_id . "', '" . $gender . "', '" . $faculty . "', '" . $residential ."')";
     if ($conn->query($sql) === TRUE) ;
 
-}*/
+}-->
 
-?>
+
 
 <div class="container">
     <div class="row justify-content-center">
@@ -24,7 +24,7 @@ if (isset($_POST["card_id"])) {   // rfid posted as a query
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('card-register') }}">
+                    <form method="POST" action="{{ route('cardregister') }}">
                         @csrf
 
                         <div class="row mb-3">
