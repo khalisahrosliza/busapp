@@ -47,7 +47,7 @@
                             <div class="col-md-6">
                                 <select id="faculty" class="form-control @error('faculty') is-invalid @enderror" name="faculty" required>
                                     <option value="" disabled selected>Select your faculty</option>
-                                    <option value="Engineering">Engineering</option>
+                                    <option value="Engineering">ENGINEERING</option>
                                     <option value="kppim">KPPIM</option>
                                     <option value="fsr">FSR</option>
                                     <option value="mascom">MASCOM</option>
