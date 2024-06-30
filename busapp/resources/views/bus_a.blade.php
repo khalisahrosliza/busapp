@@ -17,12 +17,12 @@
     <title>Ample Admin Lite Template by WrapPixel</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="plugins/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('import/assets/plugins/images/favicon.png')}}">
     <!-- Custom CSS -->
-    <link href="plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css">
+    <link href="{{asset('import/assets/plugins/bower_components/chartist/dist/chartist.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('import/assets/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css')}}">
     <!-- Custom CSS -->
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="{{asset('import/assets/css/style.min.css')}}" rel="stylesheet">
 </head>
 
 <body>
@@ -43,41 +43,6 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin6">
-                    <!-- ============================================================== -->
-                    <!-- Logo -->
-                    <!-- ============================================================== -->
-                    <a class="navbar-brand" href="dashboard.html">
-                        <!-- Logo icon -->
-                        <b class="logo-icon">
-                            <!-- Dark Logo icon -->
-                            <img src="plugins/images/logo-icon.png" alt="homepage" />
-                        </b>
-                        <!--End Logo icon -->
-                        <!-- Logo text -->
-                        <span class="logo-text">
-                            <!-- dark Logo text -->
-                            <img src="plugins/images/logo-text.png" alt="homepage" />
-                        </span>
-                    </a>
-                    <!-- ============================================================== -->
-                    <!-- End Logo -->
-                    <!-- ============================================================== -->
-                    <!-- ============================================================== -->
-                    <!-- toggle and nav items -->
-                    <!-- ============================================================== -->
-                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
-                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                </div>
-            </nav>
-        </header>
         <!-- ============================================================== -->
         <!-- End Topbar header -->
         <!-- ============================================================== -->
@@ -87,7 +52,7 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
-        <div class="page-wrapper">
+        {{-- <div class="page-wrapper"> --}}
             <!-- ============================================================== -->
             <!-- Container fluid  -->
             <!-- ============================================================== -->
@@ -98,34 +63,37 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Total Bus Operating</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <h3 class="box-title">Bus Operating</h3>
+                            <h3 class="ms-auto"><span class="counter text-success">5</span></h3>
+                            {{-- <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
-                                <li class="ms-auto"><span class="counter text-success">5</span></li>
-                            </ul>
+                                <li class="ms-auto"><span class="counter text-success">659</span></li>
+                            </ul> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
-                            <h3 class="box-title">Time:</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <h3 class="box-title">Time</h3>
+                            <h3 class="ms-auto"><span class="counter text-info">{{ date('H:i') }}</span></h3>
+                            {{-- <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash2"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
                                     </div>
                                 </li>
                                 <li class="ms-auto"><span class="counter text-purple">869</span></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
                             <h3 class="box-title">Date</h3>
-                            <ul class="list-inline two-part d-flex align-items-center mb-0">
+                            <h3 class="ms-auto"><span class="counter text-info">{{ date('Y-m-d') }}</span></h3>
+                            {{-- <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash3"><canvas width="67" height="30"
                                             style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
@@ -133,7 +101,7 @@
                                 </li>
                                 <li class="ms-auto"><span class="counter text-info">911</span>
                                 </li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                 </div>
@@ -147,22 +115,65 @@
                             <div class="d-md-flex">
                                 <ul class="list-inline d-flex ms-auto">
                                     <li class="ps-3">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>Mac</h5>
+                                        <h5><i class="fa fa-circle me-1 text-info"></i>RFID</h5>
                                     </li>
                                 </ul>
                             </div>
                             <div id="ct-visits" style="height: 405px;">
-                                <div class="chartist-tooltip" style="top: -17px; left: -12px;"><span
-                                        class="chartist-tooltip-value">6</span>
-                                </div>
+                                {{-- <div class="chartist-tooltip" style="top: -17px; left: -12px;">
+                                    <span class="chartist-tooltip-value">6</span>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
                 </div>
+
                 <!-- ============================================================== -->
                 <!-- STATISTIC -->
                 <!-- ============================================================== -->
+                <div class="row">
+                    <!-- resources/views/bus_a.blade.php -->
 
+<h1>Bus A</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Card ID</th>
+            <th>Student ID</th>
+            <th>Faculty</th>
+            <th>Gender</th>
+            <th>Residential</th>
+        </tr>
+    </thead>
+    <tbody>
+        <td>1234567</td>
+        <td>A120987</td>
+        <td>Engineering</td>
+        <td>Female</td>
+        <td>Non-Residential</td>
+    </tbody>
+    {{-- <tbody>
+        @if(isset($userDetails))
+            @foreach($userDetails as $userDetail)
+                <tr>
+                    <td>{{ $userDetail->card_id }}</td>
+                    <td>{{ $userDetail->std_id }}</td>
+                    <td>{{ $userDetail->faculty }}</td>
+                    <td>{{ $userDetail->gender }}</td>
+                    <td>{{ $userDetail->residential }}</td>
+                </tr>
+            @endforeach
+        @else
+            <tr>
+                <td colspan="5">No user details found.</td>
+            </tr>
+        @endif
+    </tbody> --}}
+</table>
+{{-- @include('cardregister', ['cardRegisterView' => $cardRegisterView]) --}}
+
+                </div>
                 <!-- ============================================================== -->
                 <!-- Driver Status -->
                 <!-- ============================================================== -->
@@ -185,7 +196,7 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
                                                 <span class="text-dark">Abdul Jalil bin Suboh <small
                                                         class="d-block text-success d-block">Available</small></span>
@@ -202,7 +213,7 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
                                                 <span class="text-dark">Hassan bin Hassin <small
                                                         class="d-block text-success d-block">Available</small></span>
@@ -219,7 +230,7 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
                                                 <span class="text-dark">Harun bin Ismail<small
                                                         class="d-block text-success d-block">Available</small></span>
@@ -236,7 +247,7 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
                                                 <span class="text-dark">Zakaria bin Samad <small
                                                         class="d-block text-success d-block">Available</small></span>
@@ -253,7 +264,7 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="plugins/images/users/varun.jpg" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
                                                 <span class="text-dark">Mahmood Baba bin Toha <small
                                                         class="d-block text-success d-block">Available</small></span>
@@ -270,7 +281,6 @@
             <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-        </div>
         <!-- ============================================================== -->
         <!-- End Page wrapper  -->
         <!-- ============================================================== -->
@@ -281,22 +291,22 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="{{asset('import/assets/plugins/bower_components/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/app-style-switcher.js"></script>
-    <script src="plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{asset('import/assets/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('import/assets/js/app-style-switcher.js')}}"></script>
+    <script src="{{asset('import/assets/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js')}}"></script>
     <!--Wave Effects -->
-    <script src="js/waves.js"></script>
+    <script src="{{asset('import/assets/js/waves.js')}}"></script>
     <!--Menu sidebar -->
-    <script src="js/sidebarmenu.js"></script>
+    <script src="{{asset('import/assets/js/sidebarmenu.js')}}"></script>
     <!--Custom JavaScript -->
-    <script src="js/custom.js"></script>
+    <script src="{{asset('import/assets/js/custom.js')}}"></script>
     <!--This page JavaScript -->
     <!--chartis chart-->
-    <script src="plugins/bower_components/chartist/dist/chartist.min.js"></script>
-    <script src="plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-    <script src="js/pages/dashboards/dashboard1.js"></script>
+    <script src="{{asset('import/assets/plugins/bower_components/chartist/dist/chartist.min.js')}}"></script>
+    <script src="{{asset('import/assets/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
+    <script src="{{asset('import/assets/js/pages/dashboards/dashboard1.js')}}"></script>
 </body>
 
 </html>

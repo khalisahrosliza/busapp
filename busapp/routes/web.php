@@ -19,7 +19,7 @@ Route::get('/bus-details', [DashboardController::class, 'showBusDetails']);
 
 Route::get('/userdetails', [UserDetailController::class , 'index'] )->name('user-details');
 Route::get('/cardregister', [CardRegisterController::class , 'index'] )->name('cardregister');
-Route::post('/cardregister', [CardRegisterController::class , 'store'] )->name('cardregister');
+// Route::post('/cardregister', [CardRegisterController::class , 'store'] )->name('cardregister');
 Route::get('/busschedule', [BusScheduleController::class , 'index'] )->name('busschedule');
 
 
