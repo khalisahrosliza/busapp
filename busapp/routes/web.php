@@ -12,14 +12,14 @@ Route::get('/passengerData', [PassengerController::class, 'index']);
 
 Route::get('/', [DashboardController::class , 'index'] )->name('dashboard');
 
-Route::get('/bus-details', [DashboardController::class, 'showBusDetails']);
+// Route::get('/busdetails', [DashboardController::class, 'showBusDetails']);
 //Auth::routes();
 
 //Route::get('/userdetails', [App\Http\Controllers\UserDetailController::class, 'index'])->name('userdetails');
 
 Route::get('/userdetails', [UserDetailController::class , 'index'] )->name('user-details');
-Route::get('/cardregister', [CardRegisterController::class , 'index'] )->name('cardregister');
-// Route::post('/cardregister', [CardRegisterController::class , 'store'] )->name('cardregister');
+Route::get('/cardregister', [CardRegisterController::class , 'index'] )->name('cardregister.index');
+Route::post('/cardregister', [CardRegisterController::class , 'store'] )->name('cardregister.store');
 Route::get('/busschedule', [BusScheduleController::class , 'index'] )->name('busschedule');
 
 

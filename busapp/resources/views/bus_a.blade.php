@@ -1,5 +1,4 @@
 @extends('navbar')
-
 @section('content')
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -64,7 +63,7 @@
                     <div class="col-lg-4 col-md-12">
                         <div class="white-box analytics-info">
                             <h3 class="box-title">Bus Operating</h3>
-                            <h3 class="ms-auto"><span class="counter text-success">5</span></h3>
+                            <h3 class="ms-auto"><span class="counter text-success">2</span></h3>
                             {{-- <ul class="list-inline two-part d-flex align-items-center mb-0">
                                 <li>
                                     <div id="sparklinedash"><canvas width="67" height="30"
@@ -115,7 +114,8 @@
                             <div class="d-md-flex">
                                 <ul class="list-inline d-flex ms-auto">
                                     <li class="ps-3">
-                                        <h5><i class="fa fa-circle me-1 text-info"></i>RFID</h5>
+                                        <h5><i class="fa fa-circle me-1 text-info"></i>JKS123</h5>
+                                        <h5><i class="fa fa-circle me-1 text-inverse"></i>QAB789</h5>
                                     </li>
                                 </ul>
                             </div>
@@ -133,9 +133,73 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- resources/views/bus_a.blade.php -->
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Bus A Charts</title>
+                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                        <script type="text/javascript">
+                            google.charts.load('current', {'packages':['corechart']});
+                            google.charts.setOnLoadCallback(drawCharts);
 
-<h1>Bus A</h1>
+                            function drawCharts() {
+                                drawChart('piechart1', [
+                                    ['Gender', 'Number of Students'],
+                                    ['Female', 11],
+                                    ['Male', 19]
+                                ], 'Gender Distribution');
 
+                                drawChart('piechart2', [
+                                    ['Faculty', 'Number of Students'],
+                                    ['Engineering', 15],
+                                    ['KPPMM', 10],
+                                    ['Masscom', 5],
+                                    ['APB', 15],
+                                    ['FSR', 5]
+                                ], 'Faculty Distribution');
+
+                                drawChart('piechart3', [
+                                    ['Residential', 'Number of Students'],
+                                    ['Non-Residential', 15],
+                                    ['Residential', 10]
+                                ], 'Residential Distribution');
+                            }
+
+                            function drawChart(elementId, dataArr, title) {
+                                var data = google.visualization.arrayToDataTable(dataArr);
+
+                                var options = {
+                                    title: title
+                                };
+
+                                var chart = new google.visualization.PieChart(document.getElementById(elementId));
+                                chart.draw(data, options);
+                            }
+                        </script>
+                        <style>
+                            .chart-container {
+                                display: flex;
+                                justify-content: space-between;
+                            }
+
+                            .chart {
+                                width: 30%;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <h1>Bus A</h1>
+                        <div class="chart-container">
+                            <div id="piechart1" class="chart" style="height: 500px;"></div>
+                            <div id="piechart2" class="chart" style="height: 500px;"></div>
+                            <div id="piechart3" class="chart" style="height: 500px;"></div>
+                        </div>
+                    </body>
+                    </html>
+
+
+        }
+{{--
 <table>
     <thead>
         <tr>
@@ -152,7 +216,7 @@
         <td>Engineering</td>
         <td>Female</td>
         <td>Non-Residential</td>
-    </tbody>
+    </tbody> --}}
     {{-- <tbody>
         @if(isset($userDetails))
             @foreach($userDetails as $userDetail)
@@ -196,9 +260,9 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/busdriver.png')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
-                                                <span class="text-dark">Abdul Jalil bin Suboh <small
+                                                <span class="text-dark">Abdul Jalil bin Suboh  (JKS123)<small
                                                         class="d-block text-success d-block">Available</small></span>
                                             </div>
                                         </a>
@@ -213,9 +277,44 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/busdriver.png')}}" alt="user-img" class="img-circle">
+                                                <div class="ms-2">
+                                                    <span class="text-dark">Hassan bin Hassin
+                                                        <small class="d-block" style="color: red;">Unavailable</small>
+                                                    </span>
+                                                </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="call-chat">
+                                            <button class="btn btn-success text-white btn-circle btn" type="button">
+                                                <i class="fas fa-phone"></i>
+                                            </button>
+                                            <button class="btn btn-info btn-circle btn" type="button">
+                                                <i class="far fa-comments text-white"></i>
+                                            </button>
+                                        </div>
+                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
+                                                src="{{asset('import/assets/plugins/images/users/busdriver.png')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
-                                                <span class="text-dark">Hassan bin Hassin <small
+                                                <span class="text-dark">Harun bin Ismail
+                                                    <small class="d-block" style="color: red;">Unavailable</small>
+                                                </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="call-chat">
+                                            <button class="btn btn-success text-white btn-circle btn" type="button">
+                                                <i class="fas fa-phone"></i>
+                                            </button>
+                                            <button class="btn btn-info btn-circle btn" type="button">
+                                                <i class="far fa-comments text-white"></i>
+                                            </button>
+                                        </div>
+                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
+                                                src="{{asset('import/assets/plugins/images/users/busdriver.png')}}" alt="user-img" class="img-circle">
+                                            <div class="ms-2">
+                                                <span class="text-dark">Zakaria bin Samad  (QAB789)<small
                                                         class="d-block text-success d-block">Available</small></span>
                                             </div>
                                         </a>
@@ -230,44 +329,11 @@
                                             </button>
                                         </div>
                                         <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
+                                                src="{{asset('import/assets/plugins/images/users/busdriver.png')}}" alt="user-img" class="img-circle">
                                             <div class="ms-2">
-                                                <span class="text-dark">Harun bin Ismail<small
-                                                        class="d-block text-success d-block">Available</small></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-phone"></i>
-                                            </button>
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="far fa-comments text-white"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">Zakaria bin Samad <small
-                                                        class="d-block text-success d-block">Available</small></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="call-chat">
-                                            <button class="btn btn-success text-white btn-circle btn" type="button">
-                                                <i class="fas fa-phone"></i>
-                                            </button>
-                                            <button class="btn btn-info btn-circle btn" type="button">
-                                                <i class="far fa-comments text-white"></i>
-                                            </button>
-                                        </div>
-                                        <a href="javascript:void(0)" class="d-flex align-items-center"><img
-                                                src="{{asset('import/assets/plugins/images/users/varun.jpg')}}" alt="user-img" class="img-circle">
-                                            <div class="ms-2">
-                                                <span class="text-dark">Mahmood Baba bin Toha <small
-                                                        class="d-block text-success d-block">Available</small></span>
+                                                <span class="text-dark">Mahmood Baba bin Toha
+                                                    <small class="d-block" style="color: red;">Unavailable</small>
+
                                             </div>
                                         </a>
                                     </li>
@@ -304,6 +370,7 @@
     <script src="{{asset('import/assets/js/custom.js')}}"></script>
     <!--This page JavaScript -->
     <!--chartis chart-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="{{asset('import/assets/plugins/bower_components/chartist/dist/chartist.min.js')}}"></script>
     <script src="{{asset('import/assets/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
     <script src="{{asset('import/assets/js/pages/dashboards/dashboard1.js')}}"></script>
