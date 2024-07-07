@@ -107,7 +107,7 @@
                 <!-- ============================================================== -->
                 <!-- Number of Bus Passsenger Graph-->
                 <!-- ============================================================== -->
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                         <div class="white-box">
                             <h3 class="box-title">Number of Bus Passenger for Today:</h3>
@@ -122,12 +122,76 @@
                             <div id="ct-visits" style="height: 405px;">
                                 {{-- <div class="chartist-tooltip" style="top: -17px; left: -12px;">
                                     <span class="chartist-tooltip-value">6</span>
-                                </div> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
+                <div class="center-title">PASSENGER FORECAST</div>
+                <div style="width: 75%; margin: auto;">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div style="width: 75%;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <title>Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .center-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM'],
+                    datasets: [
+                        {
+                            label: 'JKS123',
+                            data: [0, 0, 0, 0, 0, 0, 0, , 0, 0, 0, 0, 5, 3],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                            fill: true,
+                        },
+                        {
+                            label: 'QAB789',
+                            data: [40, 20, 38, 24, 35, 40, 50, 45, , 20, 14, 0, 15, 5],
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1,
+                            fill: true,
+                        }
+                    ]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'right',
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 10
+                            },
+                            max: 60
+                        }
+                    }
+                }
+            });
+        });
+    </script>
                 <!-- ============================================================== -->
                 <!-- STATISTIC -->
                 <!-- ============================================================== -->
@@ -136,7 +200,22 @@
                     <!DOCTYPE html>
                     <html>
                     <head>
-                        <title>Bus A Charts</title>
+                        <style>
+        .center-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .chart {
+            width: 30%;
+        }
+    </style>
                         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                         <script type="text/javascript">
                             google.charts.load('current', {'packages':['corechart']});
@@ -145,23 +224,23 @@
                             function drawCharts() {
                                 drawChart('piechart1', [
                                     ['Gender', 'Number of Students'],
-                                    ['Female', 11],
-                                    ['Male', 19]
+                                    ['Female', 4],
+                                    ['Male', 1]
                                 ], 'Gender Distribution');
 
                                 drawChart('piechart2', [
                                     ['Faculty', 'Number of Students'],
-                                    ['Engineering', 15],
-                                    ['KPPMM', 10],
-                                    ['Masscom', 5],
-                                    ['APB', 15],
-                                    ['FSR', 5]
+                                    ['Engineering', 1],
+                                    ['KPPMM', 1],
+                                    ['Masscom', 1],
+                                    ['APB', 1],
+                                    ['FSR', 1]
                                 ], 'Faculty Distribution');
 
                                 drawChart('piechart3', [
                                     ['Residential', 'Number of Students'],
-                                    ['Non-Residential', 15],
-                                    ['Residential', 10]
+                                    ['Non-Residential', 2],
+                                    ['Residential', 3]
                                 ], 'Residential Distribution');
                             }
 
@@ -188,7 +267,23 @@
                         </style>
                     </head>
                     <body>
-                        <h1>Bus A</h1>
+                        <div class="center-title">STATISTIC DISTRIBUITION</div>
+                        <style>
+                            .center-title {
+                                text-align: center;
+                                font-size: 24px;
+                                font-weight: bold;
+                                margin-top: 20px;
+                            }
+                            .chart-container {
+                                display: flex;
+                                justify-content: space-around;
+                                margin-top: 40px;
+                            }
+                            .chart {
+                                width: 30%;
+                            }
+                        </style>
                         <div class="chart-container">
                             <div id="piechart1" class="chart" style="height: 500px;"></div>
                             <div id="piechart2" class="chart" style="height: 500px;"></div>
@@ -370,6 +465,7 @@
     <script src="{{asset('import/assets/js/custom.js')}}"></script>
     <!--This page JavaScript -->
     <!--chartis chart-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="{{asset('import/assets/plugins/bower_components/chartist/dist/chartist.min.js')}}"></script>
     <script src="{{asset('import/assets/plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
