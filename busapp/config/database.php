@@ -42,10 +42,10 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
-            'host' => env('DB_HOST', '172.20.10.2'),
+            'host' => env('DB_HOST', '172.20.10.3'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'passengercounter'),
+            'database' => env('DB_DATABASE', 'passengercounter'),
+            'username' => env('DB_USERNAME', 'admin'),
             'password' => env('DB_PASSWORD', 'admin'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => env('DB_CHARSET', 'utf8mb4'),

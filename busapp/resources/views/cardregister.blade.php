@@ -21,7 +21,10 @@
                         <div class="row mb-3">
                             <label for="card_id" class="col-md-4 col-form-label text-md-end">{{ __('CARD ID') }}</label>
                             <div class="col-md-6">
-                                <input id="card_id" type="text" class="form-control @error('card_id') is-invalid @enderror" name="card_id" value="{{ old('card_id') }}" required autofocus>
+                                <div class="input-group">
+                                    <input id="card_id" type="text" class="form-control @error('card_id') is-invalid @enderror" name="card_id" value="{{ old('card_id') }}" required autofocus>
+                                    <button type="button" class="btn btn-primary" id="read-card-button">Read Card</button>
+                                </div>
                                 @error('card_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -29,6 +32,18 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <script>
+                        document.getElementById('read-card-button').addEventListener('click', function() {
+                            fetch('http://172.20.10.3:5000/read-card-id')
+                                .then(response => response.json())
+                                .then(data => {
+                                    document.getElementById('card_id').value = data.card_id;
+                                })
+                                .catch(error => console.error('Error:', error));
+                        });
+                        </script>
+
 
                         <div class="row mb-3">
                             <label for="std_id" class="col-md-4 col-form-label text-md-end">{{ __('STUDENT ID') }}</label>

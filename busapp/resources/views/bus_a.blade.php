@@ -146,7 +146,65 @@
         }
     </style>
 
-    <script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['8 AM', '9 AM', '10 AM', '11 AM', '12 PM', '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', '7 PM', '8 PM', '9 PM'],
+                datasets: [
+                    {
+                        label: 'Passenger Count',
+                        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1,
+                        fill: true,
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 10
+                        },
+                        max: 60
+                    }
+                }
+            }
+        });
+
+        function updateChart() {
+            fetch('http://172.20.10.3:5000/get-passenger-count')
+                .then(response => response.json())
+                .then(data => {
+                    var currentHour = new Date().getHours();
+                    var currentIndex = currentHour - 8; // Assuming labels start at 8 AM
+
+                    if (currentIndex >= 0 && currentIndex < myChart.data.labels.length) {
+                        myChart.data.datasets[0].data[currentIndex] = data.count;
+                        myChart.update();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Update the chart every 5 seconds
+        setInterval(updateChart, 5000);
+    });
+</script>
+
+
+   <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
@@ -191,7 +249,7 @@
                 }
             });
         });
-    </script>
+    </script>-->
                 <!-- ============================================================== -->
                 <!-- STATISTIC -->
                 <!-- ============================================================== -->

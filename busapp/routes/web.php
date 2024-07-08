@@ -16,6 +16,8 @@ Route::get('/', [DashboardController::class , 'index'] )->name('dashboard');
 //Auth::routes();
 
 //Route::get('/userdetails', [App\Http\Controllers\UserDetailController::class, 'index'])->name('userdetails');
+//ni baru tambah utk card registeration
+Route::get('/read-card-id', [App\Http\Controllers\CardRegisterController::class, 'readCardId']);
 
 Route::get('/userdetails', [UserDetailController::class , 'index'] )->name('user-details');
 Route::get('/cardregister', [CardRegisterController::class , 'index'] )->name('cardregister.index');
